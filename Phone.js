@@ -26,6 +26,8 @@ Contact = ( function (self) {
         var process = function () {
         };
 
+
+
         var init = function (number, category, type) {
             this.category = category;
             this.number = number;
