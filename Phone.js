@@ -1,13 +1,10 @@
 var Contact = Contact || {};
 
-Contact = ( function (self) {
+Contact = (function (self) {
 
-    self.Phone = function (number,category,type) {
+    self.Phone = function (aNumber, aCategory, aType) {
 
-        var private_attr;
-        var number;
-        var category;
-        var type;
+        var number, category, type;
 
         this.number = function () {
             return number;
@@ -19,22 +16,16 @@ Contact = ( function (self) {
             return type;
         };
 
-        this.set_attr = function (new_value) {
-            private_attr = new_value;
-        };
-
         var process = function () {
-        };
+            },
 
+            init = function (aNumber, aCategory, aType) {
+                category = aCategory;
+                number = aNumber;
+                type = aType;
+            };
 
-
-        var init = function (number, category, type) {
-            this.category = category;
-            this.number = number;
-            this.type = type;
-        };
-
-        init(category,number,type);
+        init(aNumber, aCategory, aType);
     };
 
     self.PhoneCategory = {
@@ -47,7 +38,6 @@ Contact = ( function (self) {
         MOBILE: 1
     };
 
-
     return self;
 
-}(Contact || {}) );
+}(Contact || {}));

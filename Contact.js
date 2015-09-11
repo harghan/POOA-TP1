@@ -1,65 +1,60 @@
 var Contact = Contact || {};
 
-Contact = ( function (self) {
+Contact = (function (self) {
 
-    self.Contact = function (gender, firstName, lastName) {
+    self.Contact = function(aGender, aFirstName, aLastName) {
 
-        var private_attr;
-        var gender;
-        var firstName;
-        var lastName;
-        var uniqueID;
+        var gender, firstName, lastName, mails = [], phones = [], uniqueID = 0;
 
         this.lastName = function () {
             return lastName;
         };
-
         this.firstName = function () {
             return firstName;
         };
-
         this.gender = function () {
             return gender;
         };
-
-        this.uniqueID = function() {
-            return uniqueID;
+        this.mails = function() {
+            return mails;
         };
-
-        this.get_attr = function () {
-            return private_attr;
+        this.phones = function () {
+            return phones;
         };
-
-        this.set_attr = function (new_value) {
-            private_attr = new_value;
+        this.set_proMails = function (address) {
+            mails.push(new Contact.Mail(address, Contact.MailCategory.PRO));
+        };
+        this.set_mobileProPhones = function (number) {
+            var TelCat = Contact.PhoneType.MOBILE,
+                TelType = Contact.PhoneCategory.PRO;
+            phones.push(new Contact.Phone(number, TelCat, TelType));
         };
 
         var process = function () {
         };
 
-        function RandomID () {
+        function RandomID() {
             "xxxx - xxxx - xxxx - xxxx - xxxx ".replace(/x/g, function (c) {
                 var r = Math.random() * 16 | 0, v = c == "x" ? r : (r & 0x3 | 0x8);
                 return v.toString(16);
             });
         }
 
-        var init = function (gender, firstName, lastName) {
-            this.gender = gender;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.uniqueID = RandomID();
+        var init = function (aGender, aFirstName, aLastName) {
+            gender = aGender;
+            firstName = aFirstName;
+            lastName = aLastName;
+            uniqueID = new RandomID();
         };
 
-        init(gender, firstName, lastName, uniqueID);
+        init(aGender, aFirstName, aLastName, uniqueID);
     };
 
     self.Gender = {
         MR: 0,
         MRS: 1
-    }
-
+    };
 
     return self;
 
-}(Contact || {}) );
+}(Contact || {}));

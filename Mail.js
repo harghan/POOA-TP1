@@ -1,12 +1,10 @@
 var Contact = Contact || {};
 
-Contact = ( function (self) {
+Contact = (function (self) {
 
-    self.Mail= function (address,category) {
+    self.Mail = function (aAddress, aCategory) {
 
-        var private_attr;
-        var address;
-        var category;
+        var address, category;
 
         this.address = function () {
             return address;
@@ -16,20 +14,14 @@ Contact = ( function (self) {
             return category;
         };
 
-
-        this.set_attr = function (new_value) {
-            private_attr = new_value;
-        };
-
         var process = function () {
-        };
+        },
+            init = function (aAddress, aCategory) {
+                address = aAddress;
+                category = aCategory;
+            };
 
-        var init = function (address, category) {
-            this.address = address;
-            this.category = category;
-        };
-
-        init(address,category);
+        init(aAddress, aCategory);
     };
 
     self.MailCategory = {
@@ -37,7 +29,6 @@ Contact = ( function (self) {
         PRO: 1
     };
 
-
     return self;
 
-}(Contact || {}) );
+}(Contact || {}));
