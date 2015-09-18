@@ -1,10 +1,16 @@
 var Contact = Contact || {};
 
 Contact = (function (self) {
+    "use strict";
 
     self.Phone = function (aNumber, aCategory, aType) {
 
-        var number, category, type;
+        var number, category, type,
+            init = function (aNumber, aCategory, aType) {
+                category = aCategory;
+                number = aNumber;
+                type = aType;
+            };
 
         this.number = function () {
             return number;
@@ -15,16 +21,6 @@ Contact = (function (self) {
         this.type = function () {
             return type;
         };
-
-        var process = function () {
-            },
-
-            init = function (aNumber, aCategory, aType) {
-                category = aCategory;
-                number = aNumber;
-                type = aType;
-            };
-
         init(aNumber, aCategory, aType);
     };
 

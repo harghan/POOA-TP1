@@ -1,10 +1,15 @@
 var Contact = Contact || {};
 
 Contact = (function (self) {
+    "use strict";
 
     self.Mail = function (aAddress, aCategory) {
 
-        var address, category;
+        var address, category,
+            init = function (aAddress, aCategory) {
+                address = aAddress;
+                category = aCategory;
+            };
 
         this.address = function () {
             return address;
@@ -13,14 +18,6 @@ Contact = (function (self) {
         this.category = function () {
             return category;
         };
-
-        var process = function () {
-        },
-            init = function (aAddress, aCategory) {
-                address = aAddress;
-                category = aCategory;
-            };
-
         init(aAddress, aCategory);
     };
 
