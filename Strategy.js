@@ -76,7 +76,6 @@ Contact = (function (self) {
                     }
                 }
             }
-
             if (contacts.length === 0) {
                 return null;
             } else if (contacts.length === 1) {
