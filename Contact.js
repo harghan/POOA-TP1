@@ -5,7 +5,7 @@ Contact = (function (self) {
 
     self.Contact = function(aGender, aFirstName, aLastName) {
 
-        var gender, firstName, lastName, mails = [], phones = [], uniqueID = 0;
+        var gender, firstName, lastName, mails = [], phones = [], id = "";
 
         this.lastName = function () {
             return lastName;
@@ -28,20 +28,21 @@ Contact = (function (self) {
         this.addPhone = function (phone) {
             phones.push(phone);
         };
-        function RandomID() {
-            "xxxx - xxxx - xxxx - xxxx - xxxx ".replace(/x/g, function (c) {
-                var r = Math.random() * 16 | 0, v = c == "x" ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
-            });
-        }
+        this.id = function () {
+            return id;
+        };
         var init = function (aGender, aFirstName, aLastName) {
             gender = aGender;
             firstName = aFirstName;
             lastName = aLastName;
-            uniqueID = new RandomID();
+            id = "xxxx-xxxx-xxxx-xxxx-xxxx".replace(/x/g, function (c) {
+                var r = Math.random() * 16 | 0, v = c ===
+                    "x" ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
         };
 
-        init(aGender, aFirstName, aLastName, uniqueID);
+        init(aGender, aFirstName, aLastName, id);
     };
 
     self.Gender = {
