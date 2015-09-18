@@ -48,6 +48,9 @@ Contact = (function (self) {
         remove: function (aContactId) {
             delete Contact.Contacts.list[aContactId];
             Contact.Contacts.listSize--;
+        },
+        search: function (strategy) {
+            return strategy.search();
         }
     };
 
